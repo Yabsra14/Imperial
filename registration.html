@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Imperial Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Imperial Academy</div>
+        <div class="mobile-menu-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="nav-links mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="#">Registration</a>
+         
+            <a href="contact.html">Contact</a>
+  
+        </div>
+    </nav>
+
+    <!-- Registration Hero -->
+    <section class="registration-hero">
+        <div class="hero-content">
+            <h1>Student <span>Registration</span></h1>
+            <p>Complete the form below to enroll at Imperial Academy</p>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="registration-form">
+        <div class="container">
+            <form id="studentRegistration">
+                <!-- Basic Information -->
+                <fieldset>
+                    <legend>Student Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Full Name*</label>
+                        <input type="text" id="fullName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth*</label>
+                            <input type="date" id="dob" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender*</label>
+                            <select id="gender" required>
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Student Type*</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="studentType" value="new" required> New Student
+                            </label>
+                            <label>
+                                <input type="radio" name="studentType" value="returning"> Returning Student
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Dynamic Fields Based on Student Type -->
+                    <div id="newStudentFields" class="hidden">
+                        <div class="form-group">
+                            <label for="prevSchool">Previous School</label>
+                            <input type="text" id="prevSchool">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="prevCertificate">Previous Year Certificate*</label>
+                            <input type="file" id="prevCertificate" accept=".pdf,.jpg,.png">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="studentPhotos">Passport Photos (2 required)*</label>
+                            <input type="file" id="studentPhotos" multiple accept=".jpg,.png" required>
+                        </div>
+                    </div>
+                    
+                    <div id="returningStudentFields" class="hidden">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="prevClass">Previous Class*</label>
+                                <select id="prevClass" required>
+                                    <option value="">Select</option>
+                                    <option value="1">Grade 1</option>
+                                    <option value="2">Grade 2</option>
+                                    <!-- Add all grades up to 12 -->
+                                    <option value="12">Grade 12</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="prevSection">Previous Section*</label>
+                                <input type="text" id="prevSection" required>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!-- Academic Stream (For Grades 10-12) -->
+                <fieldset id="streamFieldset" class="hidden">
+                    <legend>Academic Stream</legend>
+                    <div class="form-group">
+                        <label>Select Your Stream*</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="academicStream" value="natural"> Natural Science
+                            </label>
+                            <label>
+                                <input type="radio" name="academicStream" value="social"> Social Science
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <!-- Parent/Guardian Information -->
+                <fieldset>
+                    <legend>Parent/Guardian Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="parentName">Parent/Guardian Full Name*</label>
+                        <input type="text" id="parentName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parentPhone">Phone Number*</label>
+                            <input type="tel" id="parentPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentEmail">Email</label>
+                            <input type="email" id="parentEmail">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="parentAddress">Address*</label>
+                        <textarea id="parentAddress" rows="3" required></textarea>
+                    </div>
+                </fieldset>
+                
+                <!-- Photo Upload -->
+                <fieldset>
+                    <legend>Required Documents</legend>
+                    
+                    <div class="form-group">
+                        <label for="passportPhoto">Passport Size Photo*</label>
+                        <input type="file" id="passportPhoto" accept=".jpg,.png" required>
+                        <small>JPEG or PNG, max 2MB</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="birthCertificate">Birth Certificate*</label>
+                        <input type="file" id="birthCertificate" accept=".pdf,.jpg,.png" required>
+                        <small>PDF, JPEG or PNG, max 5MB</small>
+                    </div>
+                </fieldset>
+                
+                <!-- Agreement -->
+                <div class="form-group agreement">
+                    <label>
+                        <input type="checkbox" id="agreeTerms" required>
+                        I certify that all information provided is accurate and complete*
+                    </label>
+                </div>
+                
+                <!-- Submission -->
+                <div class="form-actions">
+                    <button type="submit" class="cta-button">
+                        <span>Submit Registration</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Imperial Academy</div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="#">Registration </a>
+              
+                <a href="contact.html">Contact</a>
+ 
+            </div>
+            <div class="copyright">
+                © 2025 Imperial Academy. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
